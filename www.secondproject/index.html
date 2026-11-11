@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STA MARIA</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f5f5f5;
+}
+
+.app-container{
+    max-width:400px;
+    margin:auto;
+    min-height:100vh;
+    border:2px solid #222;
+    border-radius:50px 50px 0 0;
+    overflow:hidden;
+    background:#fff;
+}
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 18px;
+    background:white;
+}
+
+.logo-section{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    object-fit:cover;
+    border:2px solid #ddd;
+
+}
+
+.header-title{
+    font-size:18px;
+    font-weight:bold;
+}
+
+.menu-btn{
+    font-size:32px;
+    border:none;
+    background:none;
+    cursor:pointer;
+}
+
+.menu{
+    display:none;
+    background:#ececec;
+}
+
+.menu.active{
+    display:block;
+}
+
+.menu-content{
+    padding:15px;
+}
+
+.menu a{
+    display:block;
+    text-decoration:none;
+    color:black;
+    padding:12px 0;
+    font-size:18px;
+}
+
+.active-link{
+    color:#0c4c8a;
+    border-bottom:2px solid #6ac35b;
+}
+
+.divider{
+    margin:20px 0;
+}
+
+.login{
+    text-align:center;
+}
+
+.register-btn{
+    display:block;
+    width:180px;
+    margin:auto;
+    background:#1f5d12;
+    color:white !important;
+    text-align:center;
+    padding:15px;
+}
+
+
+.hero{
+    min-height:700px;
+    padding:25px;
+    color:white;
+    background:
+    linear-gradient(
+    rgba(0,0,0,.25),
+    rgba(0,60,50,.8)),
+    url("beach.jpg");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.hero h1{
+    font-size:58px;
+    line-height:.9;
+    margin-top:10px;
+}
+
+.highlight{
+    color:#d7e280;
+    font-style:italic;
+}
+
+.hero p{
+    margin-top:25px;
+    line-height:1.6;
+    font-size:17px;
+}
+
+
+.btn{
+    display:block;
+    text-decoration:none;
+    text-align:center;
+    margin-top:15px;
+    padding:15px;
+    font-weight:bold;
+}
+
+.register{
+    background:#d7e280;
+    color:black;
+}
+
+.explore{
+    border:2px solid rgba(255,255,255,.5);
+    color:white;
+}
+
+.map{
+    border:2px solid rgba(255,255,255,.5);
+    color:white;
+}
+
+.hero-login{
+    margin-top:20px;
+    font-size:14px;
+}
+
+.hero-login a{
+    color:#d7e280;
+}
+
+
+.stats{
+    display:flex;
+    background:white;
+}
+
+.card{
+    flex:1;
+    text-align:center;
+    border:1px solid #aaa;
+    padding:10px;
+}
+
+.card h2{
+    font-size:40px;
+}
+
+.card p{
+    font-size:13px;
+}
+
+
+.content{
+    padding:25px;
+}
+
+.content .tag{
+    color:#4d7422;
+    margin-bottom:10px;
+}
+
+.content h2{
+    color:#295620;
+    font-size:45px;
+    line-height:1.2;
+}
+
+.content p{
+    margin-top:20px;
+    line-height:1.7;
+}
+
+.spacer{
+    height:50px;
+}
+
+
+@keyframes slideDown{
+    from{
+        opacity:0;
+        transform:translateY(-15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.menu.active{
+    animation:slideDown .3s ease;
+}
+
+.footer{
+    background:linear-gradient(
+        90deg,
+        #01352c,
+        #014738
+    );
+    color:white;
+    padding:20px;
+    margin-top:20px;
+}
+
+.footer-bottom{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.footer-brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.footer-logo{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    object-fit:cover;
+    background:white;
+}
+
+.footer-brand h3{
+    font-size:18px;
+    margin:0;
+}
+
+.footer-brand span{
+    font-size:10px;
+}
+
+.footer-links{
+    display:flex;
+    justify-content:space-between;
+}
+
+.footer-links a{
+    color:white;
+    text-decoration:none;
+    font-size:13px;
+    font-weight:bold;
+}
+/* REGISTER MODAL */
+
+.register-modal{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:#fff;
+    display:none;
+    z-index:9999;
+}
+
+.register-modal.active{
+    display:block;
+}
+
+.register-container{
+    max-width:400px;
+    margin:auto;
+    min-height:100vh;
+    padding:20px;
+    background:#fff;
+}
+
+.register-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.register-logo{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.close-btn{
+    border:none;
+    background:none;
+    font-size:35px;
+    cursor:pointer;
+}
+
+.small-title{
+    color:#4f7f22;
+    margin-top:15px;
+    font-size:14px;
+}
+
+.register-title{
+    font-size:48px;
+    margin:20px 0;
+    font-weight:400;
+}
+
+.register-description{
+    margin-bottom:25px;
+    line-height:1.5;
+}
+
+.register-container label{
+    display:block;
+    margin-top:15px;
+    margin-bottom:8px;
+}
+
+.register-container input{
+    width:100%;
+    padding:15px;
+    border:2px solid #ccc;
+    font-size:16px;
+}
+
+.register-account-btn{
+    width:100%;
+    margin-top:25px;
+    padding:18px;
+    border:none;
+    background:#2d7217;
+    color:#fff;
+    font-size:20px;
+    cursor:pointer;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, sans-serif;
+    background: #eeeeee;
+    color: #263b24;
+}
+/*header*/
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 15px;
+    background: #f8f8f5;
+    border-bottom: 1px solid #cccccc;
+}
+.logo-section{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.logo-section img{
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    object-fit: contain;
+}
+.logo-section h2{
+    font-size: 27px;
+    color: #111111;
+}
+.menu-button{
+    font-size: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #444444;
+}
+nav{
+    display: none;
+    background: #f8f8f5;
+    border-bottom: 1px solid #cccccc;
+}
+nav.show{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+nav a{
+    color: #263b24;
+    text-decoration: none;
+    font-size: 16px;
+}
+main{
+    padding: 35px 18px;
+}
+.intro{
+    text-align: center;
+    margin-bottom: 22px;
+}
+.intro .subtitle{
+    color: #789568;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+}
+.intro h1{
+    font-family: Georgia, serif;
+    font-size: 35px;
+    font-weight: normal;
+    margin-bottom: 22px;
+    color: #263b24;
+}
+.intro p{
+    color: #777777;
+    font-size: 17px;
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 22px;
+}
+.categories{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #cccccc;
+    margin-bottom: 25px;
+}
+.categories button{
+    background: none;
+    border: none;
+    padding: 10px 5px;
+    font-size: 16px;
+    color: #777777;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+}
+.categories button.active{
+    color: #71945f;
+    border-bottom-color: #71945f;
+}
+.card{
+    background: #f8f8f5;
+    border: 1px solid #dddddd;
+    box-shadow: 0 2px 6px #00000010;
+    margin-bottom: 20px;
+}
+.card img{
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+.card-content{
+    padding: 15px;
+}
+.card-category{
+    font-size: 14px;
+    color: #777777;
+    margin-bottom: 10px;
+}
+.card h2{
+    font-size: 27px;
+    font-weight: normal;
+    color: #3c5934;
+    margin-bottom: 12px;
+}
+.card p{
+    font-size: 15px;
+    line-height: 1.6;
+    color: #777777;
+    margin-bottom: 25px;
+}
+.learn-more{
+    display: inline-block;
+    color: #263b24;
+    font-family: Georgia, serif;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 8px 0;
+}
+.learn-more span{
+    font-size: 22px;
+    margin-left: 5px;
+}
+@media (max-width: 480px){
+    header{
+        padding: 10px;
+    }
+    .logo-section{
+        gap: 10px;
+    }
+    .logo-section img{
+        width: 55px;
+        height: 55px;
+    }
+    .logo-section h2{
+        font-size: 24px;
+    }
+    main{
+        padding: 35px 18px;
+    }
+    .intro h1{
+        font-size: 16px;
+    }
+    .intro p{
+        font-size: 16px;
+    }
+    .card img{
+        height: 210px;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <div class="header">
+
+        <div class="logo-section">
+
+            
+             <img src="logo.png.jpg"
+         alt="STA MARIA Logo"
+         class="logo">
+
+            <div class="header-title">
+                STA MARIA
+            </div>
+
+        </div>
+
+        <button class="menu-btn" id="menuBtn">
+            ☰
+        </button>
+
+    </div>
+
+    <div class="menu" id="menu">
+
+        <div class="menu-content">
+
+            <a href="#" class="active-link">Home</a>
+           <a href="barangay.html">Barangays</a>
+            <a href="Discover.html">Discover</a>
+            <a href="map.html">Map</a>
+            <a href="visit.html">Visit</a>
+
+            <hr class="divider">
+
+            <a href="login.html" class="login">
+                Log in
+            </a>
+
+            <a href="register.html" class="register-btn">
+                Register →
+            </a>
+
+        </div>
+
+    </div>
+
+    <section class="hero">
+
+        <h1>
+            Come home<br>
+            to<br>
+            <span class="highlight">island</span><br>
+            <span class="highlight">wonder.</span>
+        </h1>
+
+       <p>
+    Discover the welcoming communities,
+    untouched shores, and quiet beauty
+    of Sta. Maria.
+</p>
+
+<a href="#" class="btn register" id="openRegister">
+    Register now →
+</a>
+
+<a href="Discover.html" class="btn explore">
+    Explore Sta. Maria →
+</a>
+
+<a href="map.html" class="btn map">
+    🗺 View map
+</a>
+
+        <div class="hero-login">
+            Already have an account?
+            <a href="login.html">Log in</a>
+        </div>
+
+    </section>
+
+    <!-- STATS -->
+    <section class="stats">
+
+        <div class="card">
+            <h2>6</h2>
+            <p>BARANGAY</p>
+        </div>
+
+        <div class="card">
+            <h2>1</h2>
+            <p>ISLAND HOME</p>
+        </div>
+
+        <div class="card">
+            <h2>∞</h2>
+            <p>STORIES TO FIND</p>
+        </div>
+
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+
+        <div class="tag">
+            MABUHAY FROM STA. MARIA
+        </div>
+
+        <h2>
+            A small town with a
+            wide-open heart.
+        </h2>
+
+        <p>
+            Nestled on the eastern coast of tablas
+            island, Sta. Maria is a place where lush
+            hills meet clear waters and every
+            barangay has a story to share
+            
+        </p>
+
+        <div class="spacer"></div>
+
+       
+<footer class="footer">
+
+    <div class="footer-bottom">
+
+        <div class="footer-brand">
+
+            <img src="logo.png.jpg"
+                 class="footer-logo">
+
+            <div>
+                <h3>Sta. Maria</h3>
+                <span>MUNICIPALITY OF ROMBLON</span>
+            </div>
+
+        </div>
+
+        <div class="footer-links">
+            <a href="barangay.html" onclick="closeMenu()">
+    Barangays
+</a>
+            <a href="#">Discover</a>
+            <a href="#">Map</a>
+            <a href="#">f</a>
+        </div>
+
+    </div>
+
+</footer>
+
+    </section>
+    <!-- REGISTER MODAL -->
+<div class="register-modal" id="registerModal">
+
+    <div class="register-container">
+
+        <div class="register-top">
+
+            <img src="logo.png.jpg"
+                 alt="Logo"
+                 class="register-logo">
+
+            <button class="close-btn"
+                id="closeRegister">
+                ✕
+            </button>
+
+        </div>
+
+        <p class="small-title">
+            CREATE AN ACCOUNT
+        </p>
+
+        <h2 class="register-title">
+            Register first
+        </h2>
+
+        <p class="register-description">
+            Register your details before accessing your visitor account.
+        </p>
+
+        <form id="registerForm">
+
+            <label>FULL NAME</label>
+            <input type="text"
+                   placeholder="Juan Dela Cruz"
+                   required>
+
+            <label>EMAIL ADDRESS</label>
+            <input type="email"
+                   placeholder="name@email.com"
+                   required>
+
+            <label>PASSWORD</label>
+            <input type="password"
+                   placeholder="At least 6 characters"
+                   minlength="6"
+                   required>
+
+            <button type="submit"
+                    class="register-account-btn">
+                Register account →
+            </button>
+
+        </form>
+
+<header>
+    <div class="logo-section">
+        <img src="logo.png.jpg" 
+        alt="Sta. Maria Logo">
+        <h2>STA MARIA</h2>
+    </div>
+    <button class="menu-button"
+onclick="toggleMenu()" aria-label="Toggle menu">
+ ☰
+</button>
+</header>
+<nav id="menu">
+    <a href="#home">Home</a>
+    <a href="#destinations">Destinations</a>
+    <a href="#about">About Sta. Maria</a>
+    <a href="#contact">Contact</a>
+</nav>
+<main id="home">
+    <section class="intro">
+        <div class="subtitle">FIND YOUR WAY HERE</div>
+        <h1>Discover Sta. Maria</h1>
+        <p>Take the scenic route-there something 
+            quiet and beautiful waiting around 
+            everycorner</p>
+    </section>
+   
+</main>
+</div>
+
+
+<script>
+
+const menuBtn = document.getElementById('menuBtn');
+const menu = document.getElementById('menu');
+
+menuBtn.addEventListener('click', () => {
+
+    menu.classList.toggle('active');
+
+    if(menu.classList.contains('active')){
+        menuBtn.innerHTML = '✕';
+    }else{
+        menuBtn.innerHTML = '☰';
+    }
+
+});
+
+// REGISTER MODAL
+
+const openRegister =
+document.getElementById("openRegister");
+
+const registerModal =
+document.getElementById("registerModal");
+
+const closeRegister =
+document.getElementById("closeRegister");
+
+openRegister.addEventListener("click", function(e){
+
+    e.preventDefault();
+
+    registerModal.classList.add("active");
+
+});
+
+closeRegister.addEventListener("click", function(){
+
+    registerModal.classList.remove("active");
+
+});
+
+document.getElementById("registerForm")
+.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    alert("Registration Successful!");
+
+    registerModal.classList.remove("active");
+
+    this.reset();
+
+});
+function closeMenu(){
+    document.getElementById("menu")
+        .classList.remove("active");
+
+    document.getElementById("menuBtn")
+        .innerHTML = "☰";
+}
+
+</script>
+
+</body>
+</html>

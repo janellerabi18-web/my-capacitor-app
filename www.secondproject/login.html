@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - Sta. Maria</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:rgba(0,0,0,.6);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.login-modal{
+    background:#f5f4ef;
+    width:90%;
+    max-width:350px;
+    padding:22px;
+    position:relative;
+}
+
+.logo{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+}
+
+.close-btn{
+    position:absolute;
+    right:15px;
+    top:15px;
+    background:#e7e3d8;
+    border:none;
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    font-size:22px;
+    cursor:pointer;
+}
+
+.small-title{
+    margin-top:20px;
+    color:#6a8a56;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+h1{
+    color:#244233;
+    margin-top:10px;
+    font-size:24px;
+    font-family:Georgia, serif;
+}
+
+.description{
+    margin-top:12px;
+    color:#617067;
+}
+
+label{
+    display:block;
+    margin-top:22px;
+    margin-bottom:8px;
+    font-size:12px;
+    font-weight:bold;
+    color:#37453d;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    border:1px solid #d8d8d8;
+    font-size:16px;
+}
+
+.login-btn{
+    width:100%;
+    margin-top:20px;
+    padding:15px;
+    border:none;
+    background:#0f5c3d;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.divider{
+    margin:25px 0;
+    border:none;
+    border-top:1px solid #d8d8d8;
+}
+
+.register-text{
+    text-align:center;
+    color:#617067;
+    font-size:14px;
+}
+
+.register-text a{
+    color:#244233;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.note{
+    text-align:center;
+    margin-top:15px;
+    font-size:11px;
+    color:#97a09c;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-modal">
+
+    <img src="logo.png.jpg" class="logo" alt="Logo">
+
+    <button class="close-btn" onclick="closeLogin()">
+        ×
+    </button>
+
+    <p class="small-title">
+        WELCOME BACK
+    </p>
+
+    <h1>
+        Log in to Sta. Maria
+    </h1>
+
+    <p class="description">
+        Only registered visitors can log in.
+    </p>
+
+    <form id="loginForm">
+
+        <label>EMAIL ADDRESS</label>
+
+        <input
+            type="email"
+            placeholder="name@email.com"
+            required>
+
+        <label>PASSWORD</label>
+
+        <input
+            type="password"
+            placeholder="At least 6 characters"
+            minlength="6"
+            required>
+
+        <button type="submit" class="login-btn">
+            Log in →
+        </button>
+
+    </form>
+
+    <hr class="divider">
+
+    <div class="register-text">
+        Not registered yet?
+        <a href="register.html">
+            Register first
+        </a>
+    </div>
+
+    <div class="note">
+        Prototype account data is stored only in this browser.
+    </div>
+
+</div>
+
+<script>
+
+function closeLogin(){
+    window.location.href = "index.html";
+}
+
+document.getElementById("loginForm")
+.addEventListener("submit",function(e){
+
+    e.preventDefault();
+
+    alert("Login Successful!");
+
+    window.location.href = "index.html";
+
+});
+
+</script>
+
+</body>
+</html>

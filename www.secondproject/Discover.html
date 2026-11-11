@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discover Sta. Maria</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#eeeeee;
+    padding:20px;
+}
+
+.phone-frame{
+    max-width:420px;
+    margin:auto;
+    background:#f8f8f5;
+    min-height:100vh;
+
+    border:3px solid #222;
+    border-radius:60px;
+
+    overflow:hidden;
+}
+
+/* HEADER */
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px;
+    border-bottom:1px solid #ccc;
+    background:#f8f8f5;
+}
+
+.logo-section{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.logo-title{
+    font-size:18px;
+    font-weight:bold;
+}
+
+.menu-btn{
+    border:none;
+    background:none;
+    font-size:30px;
+    cursor:pointer;
+}
+
+/* MENU */
+
+.menu{
+    display:none;
+    background:#f8f8f5;
+    padding:15px;
+}
+
+.menu.active{
+    display:block;
+}
+
+.menu a{
+    display:block;
+    text-decoration:none;
+    color:black;
+    padding:15px 0;
+    font-size:18px;
+}
+
+.active-page{
+    color:#3d6b24 !important;
+    border-bottom:3px solid #7bd252;
+}
+
+.menu hr{
+    margin:20px 0;
+}
+
+.login-link{
+    text-align:center;
+    color:#224d11 !important;
+}
+
+.register-btn{
+    width:190px;
+    margin:20px auto;
+    display:block;
+    text-align:center;
+    background:#205f15;
+    color:white !important;
+    padding:14px;
+}
+
+/* CONTENT */
+
+.content{
+    padding:25px;
+}
+
+.label{
+    text-align:center;
+    color:#829e63;
+    font-size:12px;
+    letter-spacing:3px;
+}
+
+.title{
+    text-align:center;
+    font-family:Georgia,serif;
+    font-size:58px;
+    font-weight:normal;
+    color:#35552d;
+    margin-top:20px;
+}
+
+.description{
+    text-align:center;
+    color:#747474;
+    font-style:italic;
+    line-height:1.8;
+    margin-top:20px;
+}
+
+/* TABS */
+
+.tabs{
+    display:flex;
+    justify-content:space-between;
+    margin-top:25px;
+    border-bottom:1px solid #d9d9d9;
+}
+
+.tabs button{
+    border:none;
+    background:none;
+    cursor:pointer;
+    padding-bottom:12px;
+    color:#777;
+    font-size:16px;
+}
+
+.tabs button.active{
+    color:#5d8e35;
+    border-bottom:3px solid #77d04f;
+}
+
+/* CARD */
+
+.card{
+    margin-top:20px;
+    background:white;
+    border:1px solid #ddd;
+}
+
+.card img{
+    width:100%;
+    height:230px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:15px;
+}
+
+.category{
+    font-size:13px;
+    color:#777;
+}
+
+.card-title{
+    font-family:Georgia,serif;
+    color:#35552d;
+    font-size:22px;
+    margin-top:8px;
+}
+
+.card-text{
+    margin-top:10px;
+    color:#666;
+    line-height:1.6;
+}
+
+.learn{
+    display:inline-block;
+    text-decoration:none;
+    color:#35552d;
+    font-weight:bold;
+    margin-top:15px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="phone-frame">
+
+<header>
+
+    <div class="logo-section">
+
+        <img src="logo.png.jpg"
+             class="logo">
+
+        <div class="logo-title">
+            STA MARIA
+        </div>
+
+    </div>
+
+    <button class="menu-btn"
+            id="menuBtn">
+        ☰
+    </button>
+
+</header>
+
+<div class="menu" id="menu">
+
+    <a href="index.html">
+        Home
+    </a>
+
+    <a href="barangays.html">
+        Barangays
+    </a>
+
+    <a href="explore.html"
+       class="active-page">
+        Discover
+    </a>
+
+    <a href="map.html">
+        Map
+    </a>
+
+    <a href="visit.html">
+        Visit
+    </a>
+
+    <hr>
+
+    <a href="login.html"
+       class="login-link">
+        Log in
+    </a>
+
+    <a href="register.html"
+       class="register-btn">
+       Register →
+    </a>
+
+</div>
+
+<div class="content">
+
+    <div class="label">
+        FIND YOUR WAY HERE
+    </div>
+
+    <h1 class="title">
+        Discover Sta. Maria
+    </h1>
+
+    <p class="description">
+        Take the scenic route—there is something
+        quiet and beautiful waiting around
+        every corner.
+    </p>
+
+    <div class="tabs">
+
+    <button class="active"
+            onclick="filterCards('all', this)">
+        All
+    </button>
+
+    <button onclick="filterCards('resort', this)">
+        Resort
+    </button>
+
+    <button onclick="filterCards('beach', this)">
+        Beaches
+    </button>
+
+    <button onclick="filterCards('nature', this)">
+        Nature
+    </button>
+
+</div>
+<div class="card resort">
+
+    <img src="Resort.jpg" alt="Resort">
+
+    <div class="card-content">
+
+        <div class="category">
+            Resorts
+        </div>
+
+        <h2 class="card-title">
+            Amorseko Resort
+        </h2>
+
+        <p class="card-text">
+            Rest by the shore and wake up to
+            the calm blue waters of eastern Tablas.
+        </p>
+
+        <a href="#" class="learn">
+            Learn More →
+        </a>
+
+    </div>
+
+</div>
+<div class="card beach">
+
+    <img src="Morada.jpg" alt="Beach">
+
+    <div class="card-content">
+
+        <div class="category">
+            Beaches
+        </div>
+
+        <h2 class="card-title">
+           Madrona beach
+        </h2>
+
+        <p class="card-text">
+            Relax and enjoy the beautiful shoreline
+            of Sta. Maria.
+        </p>
+
+        <a href="#" class="learn">
+            Learn More →
+        </a>
+
+    </div>
+
+</div>
+<div class="card nature">
+
+    <img src="viewdeck.jpg" alt="Nature">
+
+    <div class="card-content">
+
+        <div class="category">
+            Nature
+        </div>
+
+        <h2 class="card-title">
+            Talamban View Deck
+        </h2>
+
+        <p class="card-text">
+            Explore the natural beauty and
+            peaceful landscapes.
+        </p>
+
+        <a href="#" class="learn">
+            Learn More →
+        </a>
+
+    </div>
+
+</div>
+<div class="card nature">
+
+    <img src="nature.jpg" alt="Nature">
+
+    <div class="card-content">
+
+        <div class="category">
+            Nature
+        </div>
+
+        <h2 class="card-title">
+            TAMBAYAN SA NAABANG
+        </h2>
+
+        <p class="card-text">
+            Explore the natural beauty and
+            peaceful landscapes.
+        </p>
+
+        <a href="#" class="learn">
+            Learn More →
+        </a>
+
+    </div>
+
+</div>
+<script>
+
+const menuBtn = document.getElementById("menuBtn");
+const menu = document.getElementById("menu");
+
+menuBtn.addEventListener("click", function(){
+
+    menu.classList.toggle("active");
+
+    if(menu.classList.contains("active")){
+        menuBtn.innerHTML = "✕";
+    }else{
+        menuBtn.innerHTML = "☰";
+    }
+
+});
+
+</script>
+<script>
+
+function filterCards(category, button){
+
+    let cards =
+    document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+
+        if(category === 'all'){
+
+            card.style.display = 'block';
+
+        }else{
+
+            if(card.classList.contains(category)){
+                card.style.display = 'block';
+            }
+            else{
+                card.style.display = 'none';
+            }
+
+        }
+
+    });
+
+    document
+    .querySelectorAll('.tabs button')
+    .forEach(btn => btn.classList.remove('active'));
+
+    button.classList.add('active');
+
+}
+
+</script>
+</body>
+</html>

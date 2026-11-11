@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sta Maria Tourism</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    body{
+    background:white;
+}
+
+    display:flex;
+    justify-content:center;
+    padding:20px;
+}
+
+.phone{
+    width:390px;
+    min-height:844px;
+    background:white;
+    border:3px solid #222;
+    border-radius:50px;
+    overflow:hidden;
+}
+
+.header{
+    height:70px;
+    background:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 15px;
+    border-bottom:1px solid #ccc;
+}
+
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo img{
+    width:50px;
+    height:50px;
+}
+
+.logo h1{
+    font-size:20px;
+    font-weight:bold;
+}
+
+.menu-btn{
+    background:none;
+    border:none;
+    font-size:28px;
+    cursor:pointer;
+}
+
+/* NAVIGATION */
+.nav{
+    display:none;
+    flex-direction:column;
+    background:#1f5e21;
+}
+
+.nav a{
+    color:white;
+    text-decoration:none;
+    padding:12px;
+    border-bottom:1px solid rgba(255,255,255,.2);
+}
+
+.nav.active{
+    display:flex;
+}
+
+/* CONTENT */
+.content{
+    padding:15px;
+}
+
+.subtitle{
+    color:#4f8a10;
+    font-size:14px;
+    margin:20px 0;
+}
+
+.title{
+    font-size:28px;
+    color:#1a5d1a;
+    margin-bottom:20px;
+}
+
+.description{
+    color:#555;
+    line-height:1.8;
+    margin-bottom:20px;
+}
+
+.info{
+    border-top:2px solid #999;
+    border-bottom:2px solid #999;
+    padding:12px 0;
+}
+
+.info-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin:10px 0;
+}
+
+.info-item i{
+    font-size:20px;
+}
+
+.label{
+    font-size:11px;
+    color:#555;
+    text-transform:uppercase;
+}
+
+.value{
+    font-weight:bold;
+}
+
+.map-btn{
+    display:inline-block;
+    background:#1f5e21;
+    color:white;
+    text-decoration:none;
+    padding:10px 20px;
+    margin:15px 0;
+}
+
+.map{
+    width:100%;
+    height:260px;
+    border:1px solid #ccc;
+}
+
+.location-card{
+    width:140px;
+    background:white;
+    padding:8px;
+    margin-top:-5px;
+    box-shadow:0 2px 5px rgba(0,0,0,.2);
+}
+
+.location-card h4{
+    font-size:15px;
+}
+
+.location-card p{
+    font-size:12px;
+    color:gray;
+}
+.nav-menu{
+    display:none;
+    background:#d9d9d9;
+    padding:20px;
+}
+
+.nav-menu.show{
+    display:block;
+}
+
+.nav-menu a{
+    display:block;
+    text-decoration:none;
+    color:black;
+    font-size:18px;
+    margin-bottom:35px;
+}
+
+.nav-menu a.active{
+    padding-bottom:15px;
+    border-bottom:2px solid #4CAF50;
+}
+
+.nav-menu hr{
+    border:none;
+    border-top:1px solid #aaa;
+    margin:40px 0;
+}
+
+.account-section{
+    text-align:center;
+}
+
+.login-link{
+    font-size:18px;
+    margin-bottom:20px !important;
+}
+
+.register-btn{
+    display:inline-block !important;
+    background:#1f6b0a;
+    color:white !important;
+    padding:15px 55px;
+    font-size:18px;
+    margin-top:10px;
+}
+.footer{
+    background:#004d40;
+    color:white;
+    margin-top:20px;
+    padding:25px;
+}
+
+.footer-top{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:30px;
+}
+
+.footer-top img{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:white;
+}
+
+.footer-title h2{
+    margin:0;
+    font-size:20px;
+}
+
+.footer-title p{
+    margin-top:5px;
+    font-size:14px;
+    letter-spacing:1px;
+}
+
+.footer-menu{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.footer-menu a{
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.footer-menu a:hover{
+    color:#90ee90;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="phone">
+
+    <div class="header">
+        <div class="logo">
+            <img src="logo.png.jpg" alt="Logo">
+            <h1>STA MARIA</h1>
+        </div>
+        
+<button class="menu-btn" onclick="toggleMenu()" id="menuBtn">
+    ☰
+</button>
+    </div>
+
+   <div id="navMenu" class="nav-menu">
+  <a href="index.html">Home</a>
+<a href="barangays.html">Barangays</a>
+<a href="discover.html">Discover</a>
+<a href="map.html" class="active">Map</a>
+<a href="visit.html">Visit</a>
+
+    <hr>
+
+    <div class="account-section">
+        <a href="login.html" class="login-link">Log in</a>
+
+        <a href="register.html" class="register-btn">
+            Register →
+        </a>
+    </div>
+</div>
+
+    <div class="content">
+
+        <p class="subtitle">EXPLORE THE MUNICIPALITY</p>
+
+        <h2 class="title">
+            Find your way<br>
+            around
+        </h2>
+
+        <p class="description">
+            Sta Maria is located on the eastern side of
+            Tablas Island in the province of Romblon.
+        </p>
+
+        <div class="info">
+
+            <div class="info-item">
+                <i class="fa-solid fa-location-dot"></i>
+                <div>
+                    <div class="label">Destination</div>
+                    <div class="value">Sta. Maria, Romblon</div>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <i class="fa-regular fa-compass"></i>
+                <div>
+                    <div class="label">Island</div>
+                    <div class="value">Tablas Island</div>
+                </div>
+            </div>
+
+        </div>
+
+        <a href="https://maps.google.com/?q=Sta+Maria+Romblon"
+           target="_blank"
+           class="map-btn">
+            Open full map →
+        </a>
+
+        <iframe
+        class="map"
+        src="https://maps.google.com/maps?q=Sta%20Maria%20Romblon&t=&z=12&ie=UTF8&iwloc=&output=embed">
+        </iframe>
+
+        <div class="location-card">
+            <h4>
+                <i class="fa-solid fa-location-dot"></i>
+                Sta. Maria
+            </h4>
+            <p>Romblon, Philippines</p>
+        </div>
+<!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-top">
+        <img src="logo.png.jpg" alt="Sta Maria Logo">
+
+        <div class="footer-title">
+            <h2>Sta. Maria</h2>
+            <p>MUNICIPALITY OF ROMBLON</p>
+        </div>
+    </div>
+
+    <div class="footer-menu">
+        <a href="barangay.html">Barangays</a>
+        <a href="Discover.html">Discover</a>
+        <a href="map.html">Map</a>
+        <a href="#">f</a>
+    </div>
+</footer>
+
+<script>
+function toggleMenu() {
+    document.getElementById("navMenu")
+    .classList.toggle("active");
+}
+</script>
+<!-- Scroll To Top Button -->
+<button id="scrollBtn" onclick="topFunction()">
+    ↑
+</button>
+
+<style>
+#scrollBtn{
+    display:none;
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    z-index:99;
+    border:none;
+    outline:none;
+    background:#1f5e21;
+    color:white;
+    cursor:pointer;
+    padding:15px 18px;
+    border-radius:50%;
+    font-size:20px;
+    box-shadow:0 4px 8px rgba(0,0,0,0.3);
+    transition:0.3s;
+}
+
+#scrollBtn:hover{
+    background:#2d7d31;
+    transform:scale(1.1);
+}
+</style>
+
+<script>
+// Show button when scrolling down
+window.onscroll = function() {
+    let btn = document.getElementById("scrollBtn");
+
+    if (document.body.scrollTop > 200 ||
+        document.documentElement.scrollTop > 200) {
+        btn.style.display = "block";
+    } else {
+        btn.style.display = "none";
+    }
+};
+
+// Scroll to top
+function topFunction() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+</script>
+<script>
+function toggleMenu() {
+    document.getElementById("navMenu")
+    .classList.toggle("show");
+}
+function toggleMenu() {
+    let menu = document.getElementById("navMenu");
+    let btn = document.getElementById("menuBtn");
+
+    menu.classList.toggle("show");
+
+    if(menu.classList.contains("show")){
+        btn.innerHTML = "✕";
+    }else{
+        btn.innerHTML = "☰";
+    }
+}
+</script>
+</body>
+</html>

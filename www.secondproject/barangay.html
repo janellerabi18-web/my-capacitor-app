@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meet Our Barangays</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#efefef;
+    padding:20px;
+}
+
+.phone{
+    max-width:400px;
+    margin:auto;
+    background:#f3f3f3;
+    border:3px solid #222;
+    border-radius:55px;
+    overflow:hidden;
+    min-height:100vh;
+}
+
+/* HEADER */
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px;
+    border-bottom:1px solid #ccc;
+    background:#f8f8f5;
+}
+
+.logo-area{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+}
+
+.title{
+    font-size:18px;
+    font-weight:bold;
+}
+
+.menu-btn{
+    border:none;
+    background:none;
+    font-size:28px;
+    cursor:pointer;
+}
+
+/* CONTENT */
+
+.content{
+    padding:20px;
+}
+
+.label{
+    color:#799257;
+    font-size:12px;
+    margin-top:25px;
+}
+
+.heading{
+    font-family:Georgia, serif;
+    color:#2b5718;
+    font-size:28px;
+    margin-top:12px;
+}
+
+.description{
+    color:#555;
+    line-height:1.8;
+    margin-top:12px;
+}
+
+/* SEARCH */
+
+.search-box{
+    background:white;
+    padding:12px;
+    margin-top:20px;
+    display:flex;
+    gap:10px;
+    align-items:center;
+}
+
+.search-box input{
+    width:100%;
+    border:none;
+    outline:none;
+    font-size:17px;
+}
+
+/* CARD */
+
+.card{
+    background:white;
+    padding:15px;
+    margin-top:25px;
+    border:1px solid #ddd;
+}
+
+.icon{
+    font-size:36px;
+}
+
+.barangay-name{
+    color:#1c5210;
+    font-size:18px;
+    font-weight:bold;
+    margin-top:10px;
+}
+
+.barangay-desc{
+    color:#444;
+    margin-top:15px;
+    line-height:1.8;
+}
+
+.line{
+    height:2px;
+    background:#ccc;
+    margin:20px 0;
+}
+
+.official{
+    color:#224411;
+    line-height:1.7;
+}
+
+.details{
+    display:block;
+    text-align:right;
+    color:#1c5210;
+    font-weight:bold;
+    text-decoration:none;
+    margin-top:15px;
+}
+.menu{
+    display:none;
+    background:#dcdcdc;
+}
+
+.menu.active{
+    display:block;
+}
+
+.menu-content{
+    padding:15px;
+}
+
+.menu-content a{
+    display:block;
+    text-decoration:none;
+    color:black;
+    padding:15px 0;
+    font-size:18px;
+}
+
+.active-link{
+    border-bottom:2px solid #6ac35b;
+}
+
+.divider{
+    margin:20px 0;
+}
+
+.login{
+    text-align:center;
+}
+
+.register-btn{
+    display:block;
+    width:180px;
+    margin:auto;
+    padding:15px;
+    text-align:center;
+    background:#1f5d12;
+    color:white !important;
+    text-decoration:none;
+}
+
+
+html{
+    scroll-behavior:smooth;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="phone">
+
+  <div class="header">
+
+    <div class="logo-area">
+
+        <img src="logo.png.jpg" class="logo">
+
+        <div class="title">
+            STA MARIA
+        </div>
+
+    </div>
+
+    <button class="menu-btn" id="menuBtn">
+        ☰
+    </button>
+
+</div>
+<div class="menu" id="menu">
+
+    <div class="menu-content">
+
+        <a href="index.html">Home</a>
+
+        <a href="barangays.html" class="active-link">
+            Barangays
+        </a>
+
+        <a href="discover.html">Discover</a>
+
+        <a href="map.html">Map</a>
+
+        <a href="visit.html">Visit</a>
+
+        <hr class="divider">
+
+        <a href="login.html" class="login">
+            Log in
+        </a>
+
+        <a href="register.html" class="register-btn">
+            Register →
+        </a>
+
+    </div>
+
+</div>
+
+    <div class="content">
+
+        <div class="label">
+            OUR COMMUNITIES
+        </div>
+
+        <h1 class="heading">
+            Meet our<br>
+            Barangays
+        </h1>
+
+        <p class="description">
+            Explore the six barangay that make
+            Sta. Maria one close-knit Municipality.
+        </p>
+
+        <!-- SEARCH -->
+
+        <div class="search-box">
+
+            🔍
+
+            <input
+                type="text"
+                id="search"
+                placeholder="Search barangay">
+
+        </div>
+
+        <!-- BONGA -->
+
+        <div class="card barangay">
+
+            <div class="icon">
+                👥
+            </div>
+
+            <div class="barangay-name">
+                Bonga
+            </div>
+
+            <p class="barangay-desc">
+                A welcoming community shaped by
+                 island life and local traditions.
+            </p>
+
+            <div class="line"></div>
+
+            <div class="official">
+                BARANGAY OFFICIAL<br>
+                To be confirmed
+            </div>
+
+            <a href="#" class="details">
+                View details >
+            </a>
+
+        </div>
+
+        <!-- CONCEPCION -->
+
+        <div class="card barangay">
+
+            <div class="icon">
+                👥
+            </div>
+
+            <div class="barangay-name">
+                Concepcion Norte(Poblacion)
+            </div>
+
+            <p class="barangay-desc">
+                Home to the municipal center 
+                and essential community services.
+            </p>
+
+            <div class="line"></div>
+
+            <div class="official">
+                BARANGAY OFFICIAL<br>
+                To be confirmed
+            </div>
+
+            <a href="#" class="details">
+                View details >
+            </a>
+
+        </div>
+
+        <!-- LOOC -->
+
+        <div class="card barangay">
+
+            <div class="icon">
+                👥
+            </div>
+
+            <div class="barangay-name">
+                Conception Sur
+            </div>
+
+            <p class="barangay-desc">
+                A vibrant community close to 
+                the municipality’s eastern coast.
+            </p>
+
+            <div class="line"></div>
+
+            <div class="official">
+                BARANGAY OFFICIAL<br>
+                To be confirmed
+            </div>
+
+            <a href="#" class="details">
+                View details >
+            </a>
+
+        </div>
+        
+        <div class="card barangay">
+
+            <div class="icon">
+                👥
+            </div>
+
+            <div class="barangay-name">
+                Paroyhog
+            </div>
+
+            <p class="barangay-desc">
+                A peaceful barangay surrounded 
+                by the natural beauty of Tablas.
+            </p>
+
+            <div class="line"></div>
+
+            <div class="official">
+                BARANGAY OFFICIAL<br>
+                To be confirmed
+            </div>
+
+            <a href="#" class="details">
+                View details >
+            </a>
+
+        </div>
+        <div class="card barangay">
+
+            <div class="icon">
+                👥
+            </div>
+
+            <div class="barangay-name">
+                Santo Nino
+            </div>
+
+            <p class="barangay-desc">
+                A warm community grounded in faith,
+                 family, and local heritage.
+            </p>
+
+            <div class="line"></div>
+
+            <div class="official">
+                BARANGAY OFFICIAL<br>
+                To be confirmed
+            </div>
+
+            <a href="#" class="details">
+                View details >
+            </a>
+
+        </div>
+                <div class="card barangay">
+
+            <div class="icon">
+                👥
+            </div>
+
+            <div class="barangay-name">
+                San Isidro
+            </div>
+
+            <p class="barangay-desc">
+                A close-knit community with a 
+                distinctly rural island character.
+            </p>
+
+            <div class="line"></div>
+
+            <div class="official">
+                BARANGAY OFFICIAL<br>
+                To be confirmed
+            </div>
+
+            <a href="#" class="details">
+                View details >
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+const search =
+document.getElementById("search");
+
+search.addEventListener("keyup",function(){
+
+    let value =
+    this.value.toLowerCase();
+
+    let cards =
+    document.querySelectorAll(".barangay");
+
+    cards.forEach(card=>{
+
+        let name =
+        card.querySelector(".barangay-name")
+        .textContent.toLowerCase();
+
+        if(name.includes(value)){
+            card.style.display="block";
+        }else{
+            card.style.display="none";
+        }
+
+    });
+
+});
+
+</script>
+<script>
+
+const menuBtn = document.getElementById("menuBtn");
+const menu = document.getElementById("menu");
+
+menuBtn.addEventListener("click", function(){
+
+    menu.classList.toggle("active");
+
+    if(menu.classList.contains("active")){
+        menuBtn.innerHTML = "✕";
+    }else{
+        menuBtn.innerHTML = "☰";
+    }
+
+});
+
+</script>
+</body>
+</html>

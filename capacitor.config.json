@@ -1,0 +1,14 @@
+{
+  "appId": "com.secondproject.app",
+  "appName": "secondproject",
+  "webDir": "www.secondproject",
+
+  "plugins":{
+    "SplashScreen":{
+      "launchShowDuration":30000,
+      "backgroundColor": "#ffffffff",
+      "androidScaleType": "CENTER_CROP",
+      "showSpinner": false
+    }
+  }
+}

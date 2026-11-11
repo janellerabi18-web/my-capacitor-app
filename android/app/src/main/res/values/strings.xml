@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">secondproject</string>
+    <string name="title_activity_main">secondproject</string>
+    <string name="package_name">com.secondproject.app</string>
+    <string name="custom_url_scheme">com.secondproject.app</string>
+</resources>

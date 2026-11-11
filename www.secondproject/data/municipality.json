@@ -1,0 +1,54 @@
+{
+  "officials": [
+    {
+      "name": "Fabon Bic",
+      "position": "Mayor",
+      "image": "logo.png.jpg"
+    },
+    {
+      "name": "Largueza Roland",
+      "position": "Vice Mayor",
+      "image": "logo.png.jpg"
+    },
+    {
+      "name": "Mortel Ruel",
+      "position": "Sangguniang Bayan Member",
+      "image": "logo.png.jpg"
+    },
+    {
+      "name": "Joy Astillo",
+      "position": "Sangguniang Bayan Member",
+      "image": "logo.png.jpg"
+    },
+    {
+      "name": "Toto Dalisay",
+      "position": "Sangguniang Bayan Member",
+      "image": "logo.png.jpg"
+    },
+    {
+      "name": "Limuel Manago",
+      "position": "Sangguniang Bayan Member",
+      "image": "logo.png.jpg"
+    },
+    {
+      "name": "Marlin Marino",
+      "position": "Sangguniang Bayan Member",
+      "image": "logo.png.jpg"
+    },
+    {
+      "name": "Nonoy Madrid",
+      "position": "Sangguniang Bayan Member",
+      "image": "logo.png.jpg"
+    },
+    {
+      "name": "Dennis Corpin",
+      "position": "Sangguniang Bayan Member",
+      "image": "logo.png.jpg"
+    },
+    {
+      "name": "Sonny Rico",
+      "position": "Sangguniang Bayan Member",
+      "image": "logo.png.jpg"
+    }
+  ]
+}

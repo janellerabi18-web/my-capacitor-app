@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STA MARIA Tourism</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#fff;
+}
+
+/* HERO SECTION */
+.hero{
+    height:100vh;
+    background:linear-gradient(
+        rgba(180,180,180,.6),
+        rgba(180,180,180,.6)
+    ),
+    url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:flex-end;
+    padding:20px;
+}
+
+.hero-text{
+    font-size:70px;
+    font-weight:bold;
+    line-height:0.9;
+    color:white;
+}
+
+.hero-text span{
+    color:#dce46a;
+    font-style:italic;
+}
+
+/* OPEN BUTTON */
+.menu-btn{
+    position:fixed;
+    top:20px;
+    left:20px;
+    font-size:35px;
+    cursor:pointer;
+    z-index:1000;
+}
+
+/* SIDEBAR */
+.sidebar{
+    position:fixed;
+    top:0;
+    left:-100%;
+    width:100%;
+    max-width:500px;
+    height:100%;
+    background:#e5e5e5;
+    transition:.4s;
+    z-index:2000;
+}
+
+.sidebar.active{
+    left:0;
+}
+
+.top-bar{
+    height:85px;
+    background:white;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 25px;
+}
+
+.logo-section{
+    display:flex;
+    align-items:center;
+}
+
+.logo{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:#ddd;
+    margin-right:15px;
+}
+
+.title{
+    font-size:18px;
+    font-weight:bold;
+    color:#1b3f1b;
+}
+
+.close-btn{
+    font-size:50px;
+    cursor:pointer;
+}
+
+/* MENU */
+.menu-links{
+    padding:20px 15px;
+}
+
+.menu-links a{
+    display:block;
+    color:black;
+    text-decoration:none;
+    font-size:22px;
+    padding:22px 0;
+}
+
+.green-line{
+    height:2px;
+    background:#58b947;
+    margin-bottom:5px;
+}
+
+.gray-line{
+    margin-top:20px;
+    border-top:1px solid #aaa;
+}
+
+.auth-section{
+    text-align:center;
+    margin-top:40px;
+}
+
+.login-btn{
+    border:none;
+    background:none;
+    font-size:24px;
+    cursor:pointer;
+    margin-bottom:22px;
+}
+
+.register-btn{
+    border:none;
+    background:#195f09;
+    color:white;
+    font-size:22px;
+    padding:15px 55px;
+    cursor:pointer;
+}
+
+.register-btn:hover{
+    background:#114905;
+}
+</style>
+</head>
+<body>
+
+<!-- OPEN MENU -->
+<div class="menu-btn" onclick="openMenu()">
+☰
+</div>
+
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+
+    <div class="top-bar">
+
+        <div class="logo-section">
+            <img src="logo.png" class="logo">
+
+            <div class="title">
+                STA MARIA
+            </div>
+        </div>
+
+        <div class="close-btn" onclick="closeMenu()">
+            ×
+        </div>
+
+    </div>
+
+    <div class="menu-links">
+
+        <a href="home.html">Home</a>
+
+        <div class="green-line"></div>
+
+        <a href="barangays.html">Barangays</a>
+
+        <a href="discover.html">Discover</a>
+
+        <a href="map.html">Map</a>
+
+        <a href="visit.html">Visit</a>
+
+        <div class="gray-line"></div>
+
+        <div class="auth-section">
+
+            <button class="login-btn" onclick="login()">
+                Log in
+            </button>
+
+            <br>
+
+            <button class="register-btn" onclick="register()">
+                Register →
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- HERO -->
+<section class="hero">
+
+    <div class="hero-text">
+        Come home<br>
+        to<br>
+        <span>island<br>wonder.</span>
+    </div>
+
+</section>
+
+<script>
+
+function openMenu(){
+    document.getElementById("sidebar").classList.add("active");
+}
+
+function closeMenu(){
+    document.getElementById("sidebar").classList.remove("active");
+}
+
+function login(){
+    window.location.href="login.html";
+}
+
+function register(){
+    window.location.href="register.html";
+}
+
+</script>
+
+</body>
+</html>

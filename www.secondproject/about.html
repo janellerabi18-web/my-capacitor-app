@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>About -Sta Maria</title>
+    <style>
+        /* --- Grid layout para sa mga cards ng officials --- */
+        .officials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 24px;
+            margin-top: 20px;
+        }
+
+        /* --- Design ng bawat card ng official --- */
+        .official-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 24px 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border-top: 6px solid #2f09d6;
+        }
+
+        /* --- Effect kapag hinover ang mouse sa card --- */
+        .official-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(47, 9, 214, 0.15);
+        }
+
+        /* --- Design ng larawan (bilog) --- */
+        .official-photo {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #f0f0f0;
+            margin-bottom: 16px;
+            background-color: #e0e0e0;
+            display: inline-block;
+        }
+
+        /* --- Pangalan ng official --- */
+        .official-card h3 {
+            margin: 0 0 6px 0;
+            font-size: 1.15rem;
+            color: #1a1a1a;
+        }
+
+        /* --- Posisyon / tungkulin ng official --- */
+        .official-card .position {
+            font-size: 0.9rem;
+            color: #2f09d6;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 0;
+        }
+
+        /* --- Message habang naglo-load ang data --- */
+        .loading {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #2f09d6;
+            padding: 40px;
+            grid-column: 1 / -1;
+        }
+
+        /* --- Message kapag may error sa pag-load --- */
+        .error {
+            text-align: center;
+            color: red;
+            padding: 20px;
+            background: #ffe6e6;
+            border-radius: 8px;
+            grid-column: 1 / -1;
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <button class="burger" onclick="toggleMenu()" aria-label="Toggle menu">
+        <span class="burger-icon">&#9776;</span>
+        <img src="logo.png.jpg" width="50" height="50" alt="Sta Maria Logo">
+        <span>Sta Maria</span>
+    </button>
+</nav>
+    <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+    <div class="nav-links" id="navLinks">
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="gallery.html">Gallery</a>
+    </div>
+
+    <main>
+        <h1>Municipality of Sta Maria, Romblon</h1>
+        <h2>Municipal Officials</h2>
+
+        <!-- Dito ilalagay ang mga cards ng officials -->
+        <section class="officials-grid" id="officialsContainer">
+            <div class="loading">Loading officials...</div>
+        </section>
+    </main>
+
+    <script>
+        // --- Function para buksan ang side menu ---
+        function toggleMenu() {
+            document.getElementById("navLinks").classList.toggle("open");
+            document.getElementById("overlay").classList.toggle("open");
+        }
+
+        // --- Function para i-load ang data ng mga officials galing sa JSON file ---
+        async function loadMunicipalityData() {
+            const container = document.getElementById('officialsContainer');
+            
+            try {
+                // Kinukuha ang JSON file mula sa data/municipality.json
+                const response = await fetch('data/municipality.json');
+                
+                // Kung hindi successful ang pag-fetch, mag-throw ng error
+                if (!response.ok) throw new Error('Network response was not ok');
+                
+                // Kinukuha ang JSON data at ginagawang JavaScript object
+                const data = await response.json();
+                
+                container.innerHTML = ''; // Remove ang "Loading..." message
+                
+                // Loop data ng bawat official sa JSON array
+                data.officials.forEach(person => {
+                    // Gumagawa ng bagong div para sa card
+                    const card = document.createElement('div');
+                    card.className = 'official-card';
+                    
+                    // Dito nilalagay ang picture, name, at posisyon
+                    // Kapag wala ang picture, may fallback avatar na automatic na ginagawa
+                    card.innerHTML = `
+                        <img src="${person.image}" 
+                             alt="${person.name}" 
+                             class="official-photo"
+                             onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(person.name)}&background=2f09d6&color=fff&size=110';">
+                        <h3>${person.name}</h3>
+                        <p class="position">${person.position}</p>
+                    `;
+                    
+                    // para mag add ng card sa container
+                    container.appendChild(card);
+                });
+                
+            } catch (error) {
+                // Kapag may error (ex. wala ang JSON file), ang error message
+                console.error('Error loading JSON:', error);
+                container.innerHTML = `
+                    <div class="error">
+                        <strong> Could not load officials data.</strong><br>
+                        Make sure <code>data/municipality.json</code> exists.
+                    </div>
+                `;
+            }
+        }
+
+        // loadMunicipalityData kapag nag load ang page
+        document.addEventListener('DOMContentLoaded', loadMunicipalityData);
+    </script>
+
+</body>
+</html>
